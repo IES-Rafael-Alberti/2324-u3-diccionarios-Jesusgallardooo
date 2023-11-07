@@ -3,3 +3,11 @@
     por comas. El programa debe crear un diccionario con las palabras y sus traducciones. Después pedirá 
     una frase en español y utilizará el diccionario para traducirla palabra a palabra. Si una palabra no 
     está en el diccionario debe dejarla sin traducir.'''
+    
+    
+if __name__ =="__main__":
+    #Entrada
+    
+    #Proceso
+    
+    #Salida

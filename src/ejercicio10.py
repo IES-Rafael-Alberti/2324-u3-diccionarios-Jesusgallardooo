@@ -12,3 +12,12 @@
     Mostrar lista de todos los clientes de la base datos con su NIF y nombre.
     Mostrar la lista de clientes preferentes de la base de datos con su NIF y nombre.
     Terminar el programa.'''
+
+
+
+if __name__ =="__main__":
+    #Entrada
+    
+    #Proceso
+    
+    #Salida

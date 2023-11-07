@@ -7,3 +7,12 @@
     corresponda a un cliente y tenga por clave su nif y por valor otro diccionario con el resto de la información 
     del cliente. Los diccionarios con la información de cada cliente tendrán como claves los nombres de los campos 
     y como valores la información de cada cliente correspondientes a los campos.'''
+
+
+
+if __name__ =="__main__":
+    #Entrada
+    
+    #Proceso
+    
+    #Salida
