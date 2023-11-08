@@ -6,12 +6,16 @@
 
 
 def detectar_y_sumar_creditos(creditos, sumaCreditos):
+    
+    ''' Conoce cuántos créditos tiene cada asignatura, mostrando un mensaje informativo de cada 
+        una de ellas, y devuelve la suma de los créditos de todas las asignaturas. '''
+    
     for asignatura, creditos in creditos.items():
         print(asignatura + " tiene " + str(creditos) + " creditos.")
         sumaCreditos = sumaCreditos + creditos
     return sumaCreditos
 
-if __name__ =="__main__":
+if __name__ == "__main__":
     #Entrada
     creditos = {'Matemáticas': 6, 'Física': 4, 'Química': 5}
     sumaCreditos = 0

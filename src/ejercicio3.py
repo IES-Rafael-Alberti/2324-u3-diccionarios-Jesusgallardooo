@@ -5,6 +5,9 @@
     
 
 def calcular_precio_frutas(fruta, cantidad, preciosFrutas):
+    
+    ''' Calcula el precio total localizando y sumando los precios (valores) del diccionario.'''
+    
     if fruta in preciosFrutas:
         precio = cantidad * preciosFrutas[fruta]
     else:
@@ -12,7 +15,7 @@ def calcular_precio_frutas(fruta, cantidad, preciosFrutas):
         precio = 0
     return precio
 
-if __name__ =="__main__":
+if __name__ == "__main__":
     #Entrada
     fruta = str(input("Introduzca qué fruta quiere comprar: "))
     cantidad = float(input("Introduzca la cantidad en kg:"))

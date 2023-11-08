@@ -3,6 +3,9 @@
     el diccionario.'''
     
 def detectar_simbolo_divisa(monedas, divisa):
+    
+    ''' Si divisa está en monedas, devuelve el simbolo, si no, devuelve 0 e informa que no se encuentra.'''
+    
     if divisa in monedas:
         simbolo = monedas[divisa]
     else:
