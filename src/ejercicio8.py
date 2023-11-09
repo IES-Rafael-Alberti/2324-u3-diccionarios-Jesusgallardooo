@@ -5,6 +5,14 @@
     está en el diccionario debe dejarla sin traducir.'''
     
     
+def separar_palabra_traduciion(palabras):
+    palabra,traduccion = palabras.split(":")
+    return palabra,traduccion
+
+def dividir_palabras_frase(fraseEspañol):
+    dividirFrase = fraseEspañol.split()
+    return dividirFrase
+
 if __name__ == "__main__":
     #Entrada
     traducciones = {}
@@ -13,19 +21,20 @@ if __name__ == "__main__":
     
     #Proceso
     for palabras in dividirTraducciones:
-        palabra,traduccion = palabras.split(":") #Divide las palabras a los lados de ":"
-        traducciones[palabra] = traduccion #Guarda cada palabra con su traducción en el diccionario traducciones
+        palabra, traduccion = separar_palabra_traduciion(palabras) #Divide las palabras a los lados de ":"
+        traducciones[palabra] = traduccion #Guarda cada palabra con su traducción en el diccionario traducciones.
     
+    #Entrada
     fraseEspañol = str(input("Introduzca una frase en español: "))
     
-    dividirFrase = fraseEspañol.split() #divide las palabras de la frase introducida en español
+    dividirFrase = dividir_palabras_frase(fraseEspañol) #divide las palabras de la frase introducida en español.
     traduccionIngles = [] #lista vacía para almacenar la traducción. 
     
     for palabra in dividirFrase:
         traduccion = traducciones.get(palabra, dividirFrase)
-        traduccionIngles.append(traduccion)
+        traduccionIngles.append(traduccion) #Añade cada palabra traducida a la lista
         
-    fraseTraducida = " ".join(traduccionIngles)
+    fraseTraducida = " ".join(traduccionIngles) #Concatena todos los elemenetos de una lista con " " entre ellos.
     
     #Salida
     print("Tu frase traducida al inglés significa: \n \t" + fraseTraducida)

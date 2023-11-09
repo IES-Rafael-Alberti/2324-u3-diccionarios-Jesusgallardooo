@@ -3,6 +3,17 @@
     que se añada un nuevo dato debe imprimirse el contenido del diccionario.'''
 
 
+def nombrar_dato():
+    dato = str(input("Introduzca qué dato desea almacenar: "))
+    return dato
+
+def introducir_valor_dato(dato):
+    valorDato = input("Introduzca el valor de su " + dato + ":")
+    return valorDato
+
+def guardar_dato(datosPersonales, dato, valorDato):
+    datosPersonales[dato] = valorDato
+
 if __name__ == "__main__":
     #Entrada
     datosPersonales = {}
@@ -10,9 +21,12 @@ if __name__ == "__main__":
     
     #Proceso
     for i in range(numDatos):
-        dato = str(input("Introduzca qué dato desea almacenar: "))
-        valorDato = input("Introduzca el valor de su " + dato + ":") 
-        datosPersonales[dato] = valorDato
+        
+        dato = nombrar_dato()
+        
+        valorDato = introducir_valor_dato(dato) 
+        
+        guardar_dato(datosPersonales, dato, valorDato)
         
     #Salida
         for dato, valorDato in datosPersonales.items():
