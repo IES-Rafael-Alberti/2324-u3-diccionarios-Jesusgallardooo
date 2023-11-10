@@ -4,14 +4,16 @@
     
 
 def lista_de_compra(cestaCompra, seguirComprando):
+    ''' Pregunta por los productos que se desea comprar y los almacena
+        en el diccionario CestaCompra.'''
     while seguirComprando == 1:
         producto = str(input("Introduzca qué producto desea compar: "))
         precioProducto = float(input("Introduzca el precio del producto: "))
         cestaCompra[producto] = precioProducto
-        seguirComprando = int(input("¿Seguir comprando?\n --> 1 = Sí \n --> 2 = No \n --> "))
     return cestaCompra
 
 def calcular_precio(cestaCompra):
+    ''' Calcula el precio total de los produtos compraados.'''
     precioTotal = 0
     for precio in cestaCompra.values():
         precioTotal = precioTotal + precio
@@ -24,6 +26,8 @@ if __name__ == "__main__":
     
     #Proceso
     lista_de_compra(cestaCompra, seguirComprando)
+    seguirComprando = int(input("¿Seguir comprando?\n --> 1 = Sí \n --> 2 = No \n --> "))
+
     
     #Salida
     for producto in cestaCompra.keys():

@@ -13,13 +13,57 @@
     Mostrar la lista de clientes preferentes de la base de datos con su NIF y nombre.
     Terminar el programa.'''
     
+def almacenar_clientes(clientes):
+    
+    ''' Almacena los clientes en el diccionario clientes. '''
+    
+    nif = input("Introduzca el NIF del cliente: ")
+    nombre = input("Introduzca el nombre del cliente: ")
+    direccion = input("Introduzca la dirección del cliente: ")
+    telefono = input("Introduzca el telefono del cliente: ")
+    correo = input("Introduzca el correo del cliente: ")
+    preferente = input("¿Es cliente preferente? \n\t(1)--> Sí. \n\t(2)--> no")
+            
+    cliente = {'nombre':nombre, 'direccion':direccion, 'telefono':telefono, 'correo':correo, 'preferente':preferente}
+    clientes[nif] = cliente
+    
+    return nif
+
+def comprobar_ausencia(clientes):
+    
+    ''' Comprueba que el cliente introducido se encuentra en la base de datos. '''
+    
+    nif = input("Introduzca el nif del cliente que quiera mostrar: ")
+    if nif in clientes:
+        cliente = clientes[nif]
+        print("Datos del cliente con NIF " + nif + ":")
+        for clave, valor in cliente.items():
+            print(clave + ": " + str(valor))
+    else:
+        mensaje = "El cliente con NIF " + nif + " no se encuentra en la base de datos"
+    return nif,mensaje
+
+def listar_clientes(clientes):
+    
+    ''' Crea una lista con todos los clientes. '''
+    
+    claves = clientes.values()
+    listaClientes = (list(claves))
+    return listaClientes
+
+def listar_clientes_preferentes(clientes):
+    for nif, cliente in clientes.items():
+        if cliente['preferente'] == "1":
+            print(nif, cliente)
+
 if __name__ =="__main__": 
+    
     clientes = {}
     continuar = "1"
     
     while continuar == "1":
         
-        print("\n- Menú de opciones:")
+        print("\n- Menú:")
         print("\n\t1. Añadir cliente")
         print("\t2. Eliminar cliente")
         print("\t3. Mostrar cliente")
@@ -27,62 +71,49 @@ if __name__ =="__main__":
         print("\t5. Listar clientes preferentes ")
         print("\t6. Terminar")
         
+        #Entrada
         opcion = str(input("\nSeleccione una opción (1/2/3/4/5/6): "))
 
         if opcion == "1":
-            nif = input("Introduzca el NIF del cliente: ")
-            nombre = input("Introduzca el nombre del cliente: ")
-            direccion = input("Introduzca la dirección del cliente: ")
-            telefono = input("Introduzca el telefono del cliente: ")
-            correo = input("Introduzca el correo del cliente: ")
-            preferente = input("¿Es cliente preferente? \n\t(1)--> Sí. \n\t(2)--> no")
-            
-            cliente = {'nombre':nombre, 'direccion':direccion, 'telefono':telefono, 'correo':correo, 'preferente':preferente}
-            clientes[nif] = cliente
+            #Entrada
+            almacenar_clientes(clientes)
             
             continuar = input("¿Desea continuar? \n\t(1)--> Sí. \n\t(2)--> No.")
             
         elif opcion == "2":
             nif = input("Introduzca el nif del cliente que desea eliminar: ")
+            
             if nif in clientes:
                 del clientes[nif]
                 mensaje = "Cliente con nif " + str(nif) + " ha sido eliminado"
-                continuar = input("¿Desea continuar? \n\t(1)--> Sí. \n\t(2)--> No.")
-                
+             
             else:
                 mensaje = "El cliente con nif " + str(nif) + " no se encuentra en la base de datos"
-                continuar = input("¿Desea continuar? \n\t(1)--> Sí. \n\t(2)--> No.")
-        
+                
+            print(mensaje)
+            continuar = input("¿Desea continuar? \n\t(1)--> Sí. \n\t(2)--> No.")
+
         elif opcion == "3":
-            nif = input("Introduzca el nif del cliente que quiera mostrar: ")
-            if nif in clientes:
-                cliente = clientes[nif]
-                print("Datos del cliente con NIF " + nif + ":")
-                for clave, valor in cliente.items():
-                    print(clave + ": " + str(valor))
-            else:
-                mensaje = "El cliente con NIF " + nif + " no se encuentra en la base de datos"
+            nif, mensaje = comprobar_ausencia(clientes)
+            
+            if nif not in clientes:
+                print(mensaje)
             
             continuar = input("¿Desea continuar? \n\t(1)--> Sí. \n\t(2)--> No.")
             
             
         elif opcion == "4":
-            claves = clientes.values()
-            print(list(claves))
+            listaClientes = listar_clientes(clientes)
+            print(listaClientes)
             
             continuar = input("¿Desea continuar? \n\t(1)--> Sí. \n\t(2)--> No.")
         
         elif opcion == "5":
-            for nif, cliente in clientes.items():
-                if cliente['preferente'] == "1":
-                    print(nif, cliente)
-                    
+            listar_clientes_preferentes(clientes)
+                
                     
             continuar = input("¿Desea continuar? \n\t(1)--> Sí. \n\t(2)--> No.")
             
-
         elif opcion == "6":
             print("Fin del programa.")
-            continuar = 0
-                
-            
+            continuar = 0       
