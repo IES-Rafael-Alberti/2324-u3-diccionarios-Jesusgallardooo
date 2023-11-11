@@ -4,7 +4,7 @@ from src.ejercicio10 import almacenar_clientes, comprobar_ausencia, listar_clien
 
 #def test_almacenar_clientes(): ¿?¿?¿?¿?
 
-#def test_comprobar_ausencia(clientes_prueba, capsys): ¿?¿?¿?¿¿?¿?
+#def test_comprobar_ausencia(): ¿?¿?¿?¿¿?¿?
 
 
 def test_listar_clientes(clientes_prueba):
