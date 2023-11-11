@@ -8,6 +8,7 @@ def mensaje_datos_personales(nombre, edad, direccion, telefono):
     
     datosPersonales = {'nombre' : nombre, 'edad' : edad, 'direccion' : direccion, 'telefono' : telefono}
     mensaje = (datosPersonales["nombre"] + " tiene " + datosPersonales["edad"] + " años, vive en " + datosPersonales["direccion"] + " y su numero de telefono es " + datosPersonales["telefono"])
+    
     return mensaje
 
 if __name__ == "__main__":

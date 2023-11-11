@@ -5,7 +5,7 @@
     está en el diccionario debe dejarla sin traducir.'''
     
     
-def separar_palabra_traduciion(palabras):
+def separar_palabra_traduccion(palabras):
     palabra,traduccion = palabras.split(":")
     return palabra,traduccion
 
@@ -21,7 +21,7 @@ if __name__ == "__main__":
     
     #Proceso
     for palabras in dividirTraducciones:
-        palabra, traduccion = separar_palabra_traduciion(palabras) #Divide las palabras a los lados de ":"
+        palabra, traduccion = separar_palabra_traduccion(palabras) #Divide las palabras a los lados de ":"
         traducciones[palabra] = traduccion #Guarda cada palabra con su traducción en el diccionario traducciones.
     
     #Entrada
